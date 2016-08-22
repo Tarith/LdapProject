@@ -1,0 +1,53 @@
+﻿@model SinglePageTestSite1.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Single Page Test Site 1</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box box-danger">
+            <div class="box-body">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <td>User unique indentifier</td>
+                            <td>@Model.UniqueIdentifier</td>
+                        </tr>
+                        <tr>
+                            <td>Display Name</td>
+                            <td>@Model.DisplayName</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>@Model.Mail</td>
+                        </tr>
+                        <tr>
+                            <td>Member of</td>
+                            <td>
+                                @{
+                                    var groups = string.Empty;
+
+                                    foreach (var item in Model.MemberOf)
+                                    {
+                                        groups += item + ", ";
+                                    }
+                                }
+
+                                @groups.Substring(0, groups.Length -2)
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
